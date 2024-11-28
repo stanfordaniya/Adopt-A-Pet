@@ -55,34 +55,37 @@ app.use("/api", ensureAccessToken);
 
 // Fetch Animals API Route
 app.get("/api/animals", async (req, res) => {
-  const { location, type, breed, age, size, page = 1 } = req.query;
-
-  if (!location) {
-      return res.status(400).json({ error: "Location is required." });
-  }
-
-  try {
-      const params = {
-          location,
-          type,
-          breed: breed || undefined, // Include only if provided
-          age: age || undefined,     // Include only if provided
-          size: size || undefined,   // Include only if provided
-          limit: 10,
-          page,
-      };
-
-      const response = await axios.get("https://api.petfinder.com/v2/animals", {
-          headers: { Authorization: `Bearer ${accessToken}` },
-          params,
-      });
-
-      res.json(response.data);
-  } catch (error) {
-      console.error("Error fetching animals:", error.response?.data || error.message);
-      res.status(500).json({ error: "Error fetching animals from the API." });
-  }
-});
+    const { location, type, breed, age, size, page = 1 } = req.query;
+  
+    console.log('Request received with params:', { location, type, breed, age, size, page });
+  
+    if (!location) {
+        return res.status(400).json({ error: "Location is required." });
+    }
+  
+    try {
+        const params = {
+            location,
+            type,
+            breed: breed || undefined, // Include only if provided
+            age: age || undefined,     // Include only if provided
+            size: size || undefined,   // Include only if provided
+            limit: 10,
+            page,
+        };
+  
+        const response = await axios.get("https://api.petfinder.com/v2/animals", {
+            headers: { Authorization: `Bearer ${accessToken}` },
+            params,
+        });
+  
+        res.json(response.data);
+    } catch (error) {
+        console.error("Error fetching animals:", error.response?.data || error.message);
+        res.status(500).json({ error: "Error fetching animals from the API." });
+    }
+  });
+  
 
 app.get("/api/breeds", async (req, res) => {
   const { type } = req.query;
