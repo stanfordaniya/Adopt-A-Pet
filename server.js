@@ -2,9 +2,13 @@ const express = require("express");
 const axios = require("axios");
 const path = require("path");
 require("dotenv").config(); // Load environment variables
+const cors = require('cors');  // Import the cors package
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Enable CORS
+app.use(cors());  // This will allow all origins by default
 
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, "public")));
@@ -97,8 +101,6 @@ app.get("/api/breeds", async (req, res) => {
       res.status(500).json({ error: "Error fetching breeds from the API." });
   }
 });
-
-
 
 // Fetch Animal by ID API Route
 app.get("/api/animals/:id", async (req, res) => {
