@@ -19,15 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('type').addEventListener('change', async (event) => {
         const species = event.target.value;
         const breedDropdown = document.getElementById('breed');
-    
+
         // Clear previous options
         breedDropdown.innerHTML = '<option value="">Select Breed (optional)</option>';
-    
+
         if (species) {
             try {
                 const response = await fetch(`/api/breeds?type=${species}`);
                 const data = await response.json();
-    
+
                 data.breeds.forEach((breed) => {
                     const option = document.createElement('option');
                     option.value = breed.name;
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
-    
+
     // Fetch animals based on user input
     async function fetchAnimals() {
         const location = document.getElementById('location').value;
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const breed = document.getElementById('breed').value;
         const age = document.getElementById('age').value;
         const size = document.getElementById('size').value;
-    
+
         try {
             showSpinner();
             const queryParams = new URLSearchParams({
@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 size,
                 page: currentPage,
             });
-    
+
             const response = await fetch(`/api/animals?${queryParams.toString()}`);
             const data = await response.json();
-    
+
             if (data.animals && data.animals.length > 0) {
                 displayAnimals(data.animals);
                 updatePagination(data.pagination);
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
             hideSpinner();
         }
     }
-    
+
 
     // Display animals in the DOM
     function displayAnimals(animals) {
