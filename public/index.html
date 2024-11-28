@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Pet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>🐾 Find-a-Pet 🐾</h1>
+
+    <!-- Home Button -->
+    <div id="nav-bar">
+        <button id="home-button">Home</button>
+    </div>
+
+    <!-- Adopt a Furry Friend Heading -->
+    <h2 id="adopt-heading">Adopt a Furry Friend!</h2>
+
+    <!-- Search Form -->
+<!-- Search Form -->
+<form id="search-form">
+    <input type="text" id="location" class="custom-select" placeholder="Enter Location (e.g., 10150)" required>
+    <select id="type" class="custom-select">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+    </select>
+    <select id="breed" class="custom-select">
+        <option value="">Select Breed</option>
+        <!-- Breed options populated dynamically -->
+    </select>
+    <select id="age" class="custom-select">
+        <option value="">Select Age</option>
+        <option value="baby">Baby</option>
+        <option value="young">Young</option>
+        <option value="adult">Adult</option>
+        <option value="senior">Senior</option>
+    </select>
+    <select id="size" class="custom-select">
+        <option value="">Select Size</option>
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+        <option value="xlarge">Extra Large</option>
+    </select>
+    <button type="submit">Search</button>
+</form>
+
+    
+    
+
+    <!-- Display Animals -->
+    <div id="animals"></div>
+
+    <!-- Pagination -->
+    <div id="pagination"></div>
+
+    <!-- Favorites -->
+    <div id="favorites">
+        <h2>Favorite Pets</h2>
+        <button id="view-favorites">View Favorites</button>
+        <ul id="favorites-list"></ul>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" style="display: none;">Loading...</div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,364 @@
+/* General Styling */
+/* General Styling */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* Ensure the height is full screen */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #d9f3ff, #ffffff);
+    /* Pretty gradient */
+    background-size: cover;
+    background-attachment: fixed;
+    color: #333;
+    /* Ensure text is readable */
+}
+
+/* Optional Image Background */
+body {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(230, 240, 255, 0.8)),
+        url('https://source.unsplash.com/1600x900/?pets,animals');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Center content within the body */
+h1,
+#search-form,
+#animals,
+#favorites {
+    width: 80%;
+    /* Make content fit nicely on the page */
+    max-width: 1200px;
+    /* Ensure it doesn't stretch too wide */
+    margin: 0 auto;
+    /* Center horizontally */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Add a white overlay for readability */
+    border-radius: 10px;
+    /* Soften the edges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+}
+
+/* Ensure elements are properly spaced */
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2.5rem;
+    color: #007BFF;
+}
+
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #000;
+    /* Standard black */
+}
+
+a {
+    color: #000;
+    /* Standard black */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #333;
+    /* Slightly darker black on hover */
+    text-decoration: underline;
+}
+
+/* Search Form */
+#search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#location,
+#type {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#location::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+button {
+    background-color: #000;
+    /* Black buttons */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #333;
+    /* Slightly lighter black on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    background-color: #555;
+    /* Dark gray on active */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Animal Cards */
+#animals {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    position: relative;
+}
+
+.animal {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    position: relative;
+}
+
+.animal:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.animal h3 {
+    font-size: 1.25rem;
+    margin: 10px 0;
+    color: #000;
+    /* Standard black */
+}
+
+.animal p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.animal img {
+    border-radius: 8px;
+    margin-bottom: 10px;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+/* Pagination Buttons */
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Favorites Section */
+#favorites {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#favorites ul {
+    list-style: none;
+    padding: 0;
+}
+
+#favorites li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#favorites li:last-child {
+    border-bottom: none;
+}
+
+.favorite-animal {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s;
+}
+
+.favorite-animal img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.favorite-animal h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #000;
+    /* Standard black */
+}
+
+.favorite-animal:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.favorite-animal a:hover {
+    text-decoration: underline;
+}
+
+.small-button {
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+    font-size: 12px;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s;
+}
+
+.small-button:hover {
+    background-color: #ff0000;
+    color: white;
+}
+
+/* Loading Spinner */
+#loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #000;
+    /* Black spinner */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #search-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #location,
+    #type {
+        width: 100%;
+    }
+
+    .animal img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .favorite-animal {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .favorite-animal img {
+        margin-bottom: 10px;
+    }
+}
+
+.hover-button {
+    display: inline-block;
+    /* Prevents button from stretching */
+    width: auto;
+    /* Shrinks to fit content */
+    max-width: 100px;
+    /* Optional: Adds an upper width limit */
+    padding: 5px 10px;
+    /* Adjusts inner spacing */
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    /* Ensures text is centered */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hover-button:hover {
+    background-color: red;
+    color: white;
+}
+
+.custom-select {
+    width: 100%;
+    /* Ensure consistent width */
+    max-width: 250px;
+    /* Limit width if necessary */
+    padding: 10px;
+    /* Add padding for better appearance */
+    margin-right: 10px;
+    /* Add spacing between elements */
+    border-radius: 5px;
+    /* Rounded corners */
+    border: 1px solid #ddd;
+    /* Light border */
+    background-color: #fff;
+    /* White background */
+    color: #333;
+    /* Text color */
+    font-size: 1rem;
+    /* Consistent font size */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+.custom-select:focus {
+    outline: none;
+    /* Remove default focus outline */
+    border-color: #007BFF;
+    /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Add a glow */
+}
